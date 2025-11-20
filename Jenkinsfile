@@ -24,16 +24,16 @@ pipeline {
                    sh 'docker login -u sanaribam -p ${dockerhubpwd}'
 
 }
-                   sh 'docker push sanaribam/devops-integration'
+                   sh 'docker push sanaribam/devops-automation'
                 }
             }
         }
-        stage('Deploy to k8s'){
-            steps{
-                script{
-                    kubernetesDeploy (configs: 'deploymentservice.yaml',kubeconfigId: 'k8sconfigpwd')
-                }
-            }
-        }
+//         stage('Deploy to k8s'){
+//             steps{
+//                 script{
+//                     kubernetesDeploy (configs: 'deploymentservice.yaml',kubeconfigId: 'k8sconfigpwd')
+//                 }
+//             }
+//         }
     }
 }
